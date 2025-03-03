@@ -26,7 +26,7 @@ jobs:
           dotnet-version: 9.0.x 
 
       - name: Run .NET
-        run: dotnet run -c Release --hangdump --hangdump-filename hangdump.tests.dmp --hangdump-timeout 10s,
+        run: dotnet run -c Release --hangdump --hangdump-filename hangdump.tests.dmp --hangdump-timeout 10s
         working-directory: TestPlatformRepro
         
       - name: Upload Hang Dumps
