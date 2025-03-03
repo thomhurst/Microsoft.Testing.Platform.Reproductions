@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+
+        <IsTestProject>true</IsTestProject>
+        <IsTestingPlatformApplication>true</IsTestingPlatformApplication>
+        <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
+        <TestingPlatformShowTestsFailure>true</TestingPlatformShowTestsFailure>
+        <TestingPlatformCaptureOutput>false</TestingPlatformCaptureOutput>    
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Testing.Platform" Version="1.6.2" />
+      <PackageReference Include="Microsoft.Testing.Platform.MSBuild" Version="1.6.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <!--
+          !!! IMPORTANT !!!
+          DO NOT CHANGE THE GUID, IT'S A WELL KNOWN EXTENSION POINT AND THIS EXTENSION NEEDS TO BE REGISTERED AT THE END
+          WE HAVE CODE INSIDE THE TASK 'TestingPlatformEntryPoint' TO ENSURE THE ORDER OF THE REGISTRATION BASED ON THIS GUID
+        -->
+        <TestingPlatformBuilderHook Include="6ADF853A-6945-4A06-9A4B-D99BC1DC1093" >
+            <DisplayName>TestPlatformRepro</DisplayName>
+            <TypeFullName>TestPlatformRepro.TestingPlatformBuilderHook</TypeFullName>
+        </TestingPlatformBuilderHook>
+    </ItemGroup>
+
+</Project>
